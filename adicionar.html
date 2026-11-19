@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar | Partiscore</title>
+    <link rel="icon" href="./img/logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Work+Sans:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="css/modern-normalize.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="js/adicionar.js"></script>
+</head>
+<body>
+    <app-header></app-header>
+    <app-nav></app-nav>
+    <main>
+      <h1>Adicionar partitura</h1>
+      <p class="lead">Cadastre uma nova peça na sua biblioteca.</p>
+      <div id="mensagem"></div>
+      <form id="form-partitura" class="partitura">
+        <div class="campo">
+          <label for="titulo">Título</label>
+          <input id="titulo" name="titulo" required maxlength="120" placeholder="Ex.: Clair de Lune">
+        </div>
+        <div class="campo">
+          <label for="compositor">Compositor</label>
+          <input id="compositor" name="compositor" required maxlength="120" placeholder="Ex.: Claude Debussy">
+        </div>
+        <div class="linha">
+          <div class="campo">
+            <label for="instrumento">Instrumento</label>
+            <select id="instrumento" name="instrumento">
+              <option>Piano</option><option>Teclado</option><option>Violão</option><option>Violino</option><option>Flauta</option><option>Canto</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="dificuldade">Dificuldade</label>
+            <select id="dificuldade" name="dificuldade">
+              <option>Iniciante</option><option>Intermediário</option><option>Avançado</option>
+            </select>
+          </div>
+        </div>
+        <div class="campo">
+          <label for="link_pdf">Link da partitura (PDF)</label>
+          <input id="link_pdf" name="link_pdf" type="url" placeholder="https://...">
+        </div>
+        <button class="btn" type="submit">Adicionar partitura</button>
+      </form>
+    </main>
+    <app-footer></app-footer>
+</body>
+</html>

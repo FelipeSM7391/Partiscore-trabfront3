@@ -1,0 +1,17 @@
+:root {
+  --ebano: #1b1614;
+  --marfim: #f6f1e4;
+  --marfim-escuro: #e6dfcb;
+  --feltro: #8f2a2a;
+  --feltro-escuro: #6e1f1f;
+  --madeira: #5a3d2b;
+  --texto: #2a2320;
+  --texto-suave: #6b5f56;
+
+  --fonte-titulo: "Cormorant Garamond", Georgia, serif;
+  --fonte-corpo: "Work Sans", system-ui, sans-serif;
+
+  --espaco: 1rem;
+  --raio: 6px;
+  --largura-max: 68rem;
+}

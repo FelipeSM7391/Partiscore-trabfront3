@@ -1,0 +1,82 @@
+body {
+  background: var(--marfim);
+  color: var(--texto);
+  font-family: var(--fonte-corpo);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+main { flex: 1; width: 100%; max-width: var(--largura-max); margin: 0 auto; padding: 2.5rem var(--espaco); }
+h1, h2, h3 { font-family: var(--fonte-titulo); line-height: 1.15; margin: 0 0 .5rem; }
+h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 700; }
+h2 { font-size: 1.6rem; }
+a { color: var(--feltro); }
+:focus-visible { outline: 3px solid var(--feltro); outline-offset: 2px; }
+[hidden] { display: none !important; }
+.lead { color: var(--texto-suave); max-width: 60ch; margin: 0 0 2rem; }
+
+/* ---------- header ---------- */
+app-header { display: block; background: var(--ebano); color: var(--marfim); }
+.cabecalho { max-width: var(--largura-max); margin: 0 auto; padding: 1.25rem var(--espaco); display: flex; align-items: center; gap: 1rem; }
+.cabecalho img { width: 48px; height: 48px; }
+.cabecalho strong { font-family: var(--fonte-titulo); font-size: 2rem; letter-spacing: .02em; display: block; line-height: 1; }
+.cabecalho span { color: var(--marfim-escuro); font-size: .9rem; }
+
+/* ---------- nav (botões = teclas de piano) ---------- */
+app-nav { display: block; background: var(--madeira); border-top: 4px solid var(--feltro); }
+app-nav ul { list-style: none; margin: 0 auto; padding: .75rem var(--espaco) 0; max-width: var(--largura-max); display: flex; flex-wrap: wrap; gap: 3px; }
+app-nav a {
+  display: block; min-width: 9rem; text-align: center;
+  padding: 1.6rem 1.2rem .8rem; border-radius: 0 0 var(--raio) var(--raio);
+  font-weight: 600; text-decoration: none; border-bottom: 5px solid transparent;
+  transition: transform .12s ease;
+}
+/* teclas brancas */
+app-nav li:nth-child(odd) a { background: var(--marfim); color: var(--ebano); box-shadow: inset -2px 0 0 #cfc6b0; }
+/* teclas pretas */
+app-nav li:nth-child(even) a { background: var(--ebano); color: var(--marfim); box-shadow: inset 0 -6px 0 #3a302a; }
+app-nav a:hover { transform: translateY(3px); }
+/* tecla pressionada = página atual */
+app-nav a[aria-current="page"] { transform: translateY(5px); border-bottom-color: var(--feltro); }
+@media (max-width: 560px) { app-nav li { flex: 1 1 45%; } app-nav a { min-width: 0; } }
+
+/* ---------- footer ---------- */
+app-footer { display: block; background: var(--ebano); color: var(--marfim-escuro); font-size: .9rem; }
+app-footer .rodape { max-width: var(--largura-max); margin: 0 auto; padding: 1.5rem var(--espaco); display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem; }
+
+/* ---------- formulários ---------- */
+form.partitura { background: #fffdf6; border: 1px solid var(--marfim-escuro); border-radius: var(--raio); padding: 1.75rem; max-width: 40rem; display: grid; gap: 1.1rem; }
+.campo { display: grid; gap: .3rem; }
+label { font-weight: 600; font-size: .95rem; }
+input, select, textarea { padding: .65rem .75rem; border: 1px solid #b9ad94; border-radius: var(--raio); background: #fff; color: var(--texto); }
+textarea { min-height: 6rem; resize: vertical; }
+.linha { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+.btn { display: inline-block; padding: .65rem 1.3rem; border: 0; border-radius: var(--raio); background: var(--feltro); color: var(--marfim); font-weight: 600; cursor: pointer; text-decoration: none; }
+.btn:hover { background: var(--feltro-escuro); }
+.btn.secundario { background: transparent; color: var(--ebano); border: 1px solid var(--ebano); }
+.btn.secundario:hover { background: var(--marfim-escuro); }
+.btn.perigo { background: var(--ebano); }
+.btn.pequeno { padding: .35rem .8rem; font-size: .85rem; }
+.btn:disabled { opacity: .5; cursor: wait; }
+
+/* ---------- lista de partituras ---------- */
+.grade { display: grid; grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr)); gap: 1.25rem; }
+.partitura-card { background: #fffdf6; border: 1px solid var(--marfim-escuro); border-left: 6px solid var(--ebano); border-radius: var(--raio); padding: 1.2rem; display: flex; flex-direction: column; gap: .35rem; }
+.partitura-card h3 { font-size: 1.5rem; }
+.partitura-card .compositor { color: var(--texto-suave); margin: 0; }
+.partitura-card .info { font-size: .9rem; margin: 0; }
+.partitura-card .acoes { margin-top: auto; padding-top: .8rem; display: flex; gap: .5rem; flex-wrap: wrap; }
+.selo { align-self: flex-start; font-size: .8rem; padding: .1rem .6rem; border-radius: 99px; background: var(--ebano); color: var(--marfim); }
+.selo[data-nivel="Intermediário"] { background: var(--madeira); }
+.selo[data-nivel="Avançado"] { background: var(--feltro); }
+
+/* ---------- mensagens ---------- */
+.aviso { padding: .8rem 1rem; border-radius: var(--raio); margin-bottom: 1.25rem; border: 1px solid; max-width: 40rem; }
+.aviso.ok { background: #eaf3e6; border-color: #7da56d; }
+.aviso.erro { background: #f8e4e1; border-color: var(--feltro); }
+.vazio { color: var(--texto-suave); padding: 2rem 0; }
+
+@media (max-width: 560px) { .linha { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
